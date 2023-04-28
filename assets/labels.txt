@@ -1,0 +1,6 @@
+0 covid
+1 pneumonia
+2 tuberculosis 
+3 normal
+4 brain tumor
+5 normal brain
