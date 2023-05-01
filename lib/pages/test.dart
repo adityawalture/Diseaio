@@ -1,9 +1,14 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:tflite/tflite.dart';
+import 'package:flutter_tflite/flutter_tflite.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import '../main.dart';
 
@@ -15,11 +20,10 @@ class TestInput extends StatefulWidget {
 }
 
 class _TestInputState extends State<TestInput> {
-  static CameraImage? cameraImage;
   CameraController? cameraController;
   String output = '';
   String outputs = '';
-  File? image;
+  File? img;
   late bool loading = true;
 
   @override
@@ -30,28 +34,28 @@ class _TestInputState extends State<TestInput> {
   }
 
   pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image == null) return null;
+    final img = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (img == null) return null;
 
-    final imageTemp = File(image.path);
+    final imageTemp = File(img.path);
 
     setState(() {
-      this.image = imageTemp;
+      this.img = imageTemp;
       runModel();
     });
   }
 
   void clearImage() {
     setState(() {
-      image = null;
+      img = null;
       outputs = '';
     });
   }
 
   runModel() async {
-    if (image != null) {
+    if (img != null) {
       var predict = await Tflite.runModelOnImage(
-          path: image!.path,
+          path: img!.path,
           imageMean: 0.0, // defaults to 117.0
           imageStd: 255.0, // defaults to 1.0
           numResults: 2, // defaults to 5
@@ -75,42 +79,48 @@ class _TestInputState extends State<TestInput> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 209, 255, 207),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(left: 70, right: 70),
             child: Container(
-              height: 120,
-              width: 120,
+              height: 250,
+              width: 250,
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
-              ),
-              child: image != null
-                  ? Image.file(
-                      image!,
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                    )
-                  : Container(
-                      height: 120,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
-                      ),
-                    ),
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(width: 2),
+                  image: img != null
+                      ? DecorationImage(
+                          image: FileImage(img!), fit: BoxFit.cover)
+                      : null),
             ),
           ),
+          SizedBox(height: 15),
           Text(
             outputs,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            style:
+                GoogleFonts.roboto(fontSize: 25, fontWeight: FontWeight.w700),
           ),
+          SizedBox(height: 15),
           ElevatedButton(
             onPressed: pickImage,
-            child: Text("Pick Image"),
+            child: Text(
+              "Pick Image",
+              style:
+                  GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
           ),
-          ElevatedButton(
+          TextButton(
             onPressed: clearImage,
-            child: Text("Clear Image"),
+            child: Text(
+              "Clear Image",
+              style:
+                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
           )
         ],
       ),
