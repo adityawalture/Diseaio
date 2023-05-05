@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:login_trail/pages/symptomsInput.dart';
 import 'package:login_trail/pages/test.dart';
 
+import '../components/DrawerPg.dart';
 import 'diseaseInput.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,57 +24,7 @@ class _HomePageState extends State<HomePage> {
       length: 3,
       child: Scaffold(
           backgroundColor: Color.fromARGB(255, 209, 255, 207),
-          drawer: Drawer(
-            child: Column(
-              children: [
-                Container(
-                  color: Colors.green.shade50,
-                  width: double.infinity,
-                  height: 250,
-                  padding: EdgeInsets.only(top: 20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(radius: 45),
-                      SizedBox(height: 30),
-                      Text('LognIn as ${user.email!}',
-                          style: GoogleFonts.roboto()),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 15),
-                    child: Container(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          InkWell(
-                              onTap: () {
-                                FirebaseAuth.instance.signOut();
-                              },
-                              child: Row(
-                                children: [
-                                  Icon(Icons.logout_outlined, size: 36),
-                                  SizedBox(width: 10),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 5, top: 5),
-                                    child: Text(
-                                      'Log Out',
-                                      style: GoogleFonts.roboto(fontSize: 20),
-                                    ),
-                                  ),
-                                ],
-                              )),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+          drawer: Drawer(child: DrawPg()),
           appBar: AppBar(
             title: Text('Home', style: GoogleFonts.roboto()),
             bottom: TabBar(tabs: [
@@ -143,3 +94,59 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+
+
+
+
+
+// Column(
+//               children: [
+//                 Container(
+//                   color: Colors.green.shade50,
+//                   width: double.infinity,
+//                   height: 250,
+//                   padding: EdgeInsets.only(top: 20.0),
+//                   child: Column(
+//                     mainAxisAlignment: MainAxisAlignment.center,
+//                     children: [
+//                       CircleAvatar(radius: 45),
+//                       SizedBox(height: 30),
+//                       Text('LognIn as ${user.email!}',
+//                           style: GoogleFonts.roboto()),
+//                     ],
+//                   ),
+//                 ),
+//                 Expanded(
+//                   child: Padding(
+//                     padding: const EdgeInsets.only(top: 20, left: 15),
+//                     child: Container(
+//                       child: Row(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           InkWell(
+//                               onTap: () {
+//                                 FirebaseAuth.instance.signOut();
+//                               },
+//                               child: Row(
+//                                 children: [
+//                                   Icon(Icons.logout_outlined, size: 36),
+//                                   SizedBox(width: 10),
+//                                   Padding(
+//                                     padding:
+//                                         const EdgeInsets.only(left: 5, top: 5),
+//                                     child: Text(
+//                                       'Log Out',
+//                                       style: GoogleFonts.roboto(fontSize: 20),
+//                                     ),
+//                                   ),
+//                                 ],
+//                               )),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 )
+//               ],
+//             ),

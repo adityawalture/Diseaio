@@ -43,6 +43,7 @@ dependencies:
   image_picker:
   image :
   camera:
+  transparent_image: ^2.0.1
 
 dev_dependencies:
   flutter_test:
