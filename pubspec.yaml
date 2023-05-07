@@ -44,6 +44,7 @@ dependencies:
   image :
   camera:
   transparent_image: ^2.0.1
+  http: 
 
 dev_dependencies:
   flutter_test:
