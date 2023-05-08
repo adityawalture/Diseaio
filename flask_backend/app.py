@@ -20,6 +20,15 @@ def predict():
     asthenia = request.form.get('asthenia')
     fall = request.form.get('fall')
     syncope = request.form.get('syncope')
+    vertigo = request.form.get('vertigo')
+    sweat = request.form.get('sweat')
+    vomiting = request.form.get('vomiting')
+    nausea = request.form.get('nausea')
+    chest_discomfort = request.form.get('chest discomfort')
+    blackout = request.form.get('blackout')
+    sneeze = request.form.get('sneeze')
+    cough = request.form.get('cough')
+    fever = request.form.get('fever')
 
     input_query = np.array([[shortness_of_breath,dizziness,asthenia,fall,syncope]])
 
