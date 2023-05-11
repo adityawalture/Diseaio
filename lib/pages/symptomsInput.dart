@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
-
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:login_trail/pages/predictDisease.dart';
+import 'package:http/http.dart' as http;
+// import 'package:login_trail/pages/predictDisease.dart';
 
 class SymptomsInput extends StatefulWidget {
   const SymptomsInput({super.key});
@@ -12,135 +13,376 @@ class SymptomsInput extends StatefulWidget {
 }
 
 class _SymptomsInputState extends State<SymptomsInput> {
-  late String symptom;
-  List<String> patientSymptoms = [];
+  double shortnessOfBreath = 0.0;
+  double dizziness = 0.0;
+  double asthenia = 0.0;
+  double fall = 0.0;
+  double syncope = 0.0;
+  double vertigo = 0.0;
+  double sweat = 0.0;
+  double vomiting = 0.0;
+  double nausea = 0.0;
+  double chestdiscomfort = 0.0;
+  double blackout = 0.0;
+  double sneeze = 0.0;
+  double cough = 0.0;
+  double fever = 0.0;
 
-  List<Widget> convertToTile(List<String> symptomStrings) {
-    List<Widget> symptomTile = [];
-    for (int i = 0; i < symptomStrings.length; ++i) {
-      symptomTile.add(Card(
-        elevation: 2.5,
-        child: ListTile(
-          trailing: IconButton(
-            icon: Icon(Icons.cancel_outlined, color: Color(0xFFD60000)),
-            onPressed: () {
-              setState(() {
-                symptomStrings.remove(symptomStrings[i]);
-              });
-            },
-          ),
-          title: Text(
-            symptomStrings[i],
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 20.5,
-            ),
-          ),
-        ),
-      ));
-      symptomTile.add(SizedBox(
-        height: 3,
-      ));
-    }
-    symptomTile.add(TextButton(
-      onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => PredictDisease(
-                      symptoms: symptomStrings,
-                    )));
+  String predictedDisease = '';
+  final _formKey = GlobalKey<FormState>();
+  Future<void> _submitSelection() async {
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:5000/predict'),
+      body: {
+        'shortness of breath': shortnessOfBreath.toString(),
+        'dizziness': dizziness.toString(),
+        'asthenia': asthenia.toString(),
+        'fall': fall.toString(),
+        'syncope': syncope.toString(),
+        'vertigo': vertigo.toString(),
+        'sweat': sweat.toString(),
+        'vomiting': vomiting.toString(),
+        'nausea': nausea.toString(),
+        'chest discomfort': chestdiscomfort.toString(),
+        'blackout': blackout.toString(),
+        'sneeze': sneeze.toString(),
+        'cough': cough.toString(),
+        'fever': fever.toString(),
       },
-      child: Container(
-        width: 230,
-        height: 45,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "Predict Disease",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 22.5,
-                fontWeight: FontWeight.w500),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(26.0),
-          color: Colors.lightGreen,
-          border:
-              Border.all(width: 1.0, color: Color.fromARGB(255, 79, 252, 63)),
-        ),
-      ),
-    ));
-    return symptomTile;
+    ).timeout(
+      Duration(seconds: 50),
+    );
+    final data = jsonDecode(response.body);
+    setState(() {
+      predictedDisease = data['disease'];
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView(
-        // ignore: prefer_const_literals_to_create_immutables
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 209, 255, 207),
+      body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10, top: 20),
-            child: Text(
-              "Add Symptoms",
-              style:
-                  GoogleFonts.roboto(fontSize: 30, fontWeight: FontWeight.w600),
-              textAlign: TextAlign.left,
+          // ignore: sized_box_for_whitespace
+          Container(
+            // color: Colors.white,
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            child: Center(
+              child: Text(
+                'Select Symptoms',
+                style: GoogleFonts.roboto(
+                    fontSize: 25, fontWeight: FontWeight.w700),
+              ),
             ),
           ),
-          SizedBox(height: 20),
-          ListTile(
-            title: TextField(
-              onChanged: (value) {
-                setState(() {
-                  symptom = value;
-                });
-              },
-              decoration: InputDecoration(
-                hintText: "What are you feeling",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(17.5)),
-                  borderSide: BorderSide(
-                      color: Color.fromARGB(179, 144, 255, 34), width: 1),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: Color.fromARGB(255, 255, 34, 34), width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(17.5)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: Color.fromARGB(179, 34, 144, 255), width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(17.5)),
+          SizedBox(
+            height: 300,
+            width: MediaQuery.of(context).size.width,
+            // color: Colors.blueGrey,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                          // tileColor: Colors.lightGreenAccent.shade100,
+                          title: Text(
+                            'Shortness of breath',
+                            style: GoogleFonts.roboto(
+                                fontSize: 20, fontWeight: FontWeight.w500),
+                          ),
+                          value: shortnessOfBreath == 1.0,
+                          onChanged: (value) {
+                            setState(() {
+                              shortnessOfBreath =
+                                  value != null && value ? 1.0 : 0.0;
+                            });
+                          }),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Dizziness',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: dizziness == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            dizziness = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Asthenia',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: asthenia == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            asthenia = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Fall',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: fall == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            fall = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Syncope',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: syncope == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            syncope = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Vertigo',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: vertigo == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            vertigo = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Sweat',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: sweat == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            sweat = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Vomiting',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: vomiting == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            vomiting = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Nausea',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: nausea == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            nausea = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Chest Discomfort',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: chestdiscomfort == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            chestdiscomfort =
+                                value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Blackout',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: blackout == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            blackout = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Sneeze',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: sneeze == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            sneeze = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Cough',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: cough == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            cough = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CheckboxListTile(
+                        // tileColor: Colors.lightGreenAccent.shade100,
+                        title: Text(
+                          'Fever',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                        value: fever == 1.0,
+                        onChanged: (value) {
+                          setState(() {
+                            fever = value != null && value ? 1.0 : 0.0;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.add_circle_rounded,
-                  color: Color(0xffd60000), size: 25),
-              onPressed: () {
-                if (symptom.length != 0) {
-                  setState(() {
-                    patientSymptoms.add(symptom);
-                    symptom;
-                  });
-                } else {
-                  print("No symptom added");
-                }
-              },
-            ),
           ),
-          SizedBox(height: 25),
-          patientSymptoms.length != 0
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [],
-                )
-              : Center(),
+          SizedBox(height: 20),
+          Container(
+              height: 200,
+              width: MediaQuery.of(context).size.width,
+              // color: Colors.blueAccent,
+              child: Column(
+                children: [
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: _submitSelection,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Submit',
+                          style: GoogleFonts.roboto(
+                              fontSize: 20, fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Color.fromARGB(255, 174, 246, 179),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Predicted Disease",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 20, fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                predictedDisease,
+                                style: GoogleFonts.roboto(
+                                    fontSize: 25, fontWeight: FontWeight.w700),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )),
         ],
       ),
     );

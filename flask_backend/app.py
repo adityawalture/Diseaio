@@ -17,6 +17,7 @@ def predict():
     asthenia = request.form.get('asthenia')
     fall = request.form.get('fall')
     syncope = request.form.get('syncope')
+<<<<<<< HEAD
     vertigo=request.form.get('vertigo')
     sweat=request.form.get('sweat')
     sweating_increased=request.form.get('sweating increased')
@@ -27,6 +28,17 @@ def predict():
     polyuria=request.form.get('polyuria')
     polydypsia=request.form.get('polydypsia')
     pain_chest=request.form.get('pain chest')   
+=======
+    vertigo = request.form.get('vertigo')
+    sweat = request.form.get('sweat')
+    vomiting = request.form.get('vomiting')
+    nausea = request.form.get('nausea')
+    chest_discomfort = request.form.get('chest discomfort')
+    blackout = request.form.get('blackout')
+    sneeze = request.form.get('sneeze')
+    cough = request.form.get('cough')
+    fever = request.form.get('fever')
+>>>>>>> 92aacbf656bf6065a1ab54dd04317d650111e247
 
     input_query = np.array([[shortness_of_breath,dizziness,asthenia,fall,syncope,vertigo,sweat,sweating_increased,palpitation,nausea,
                              angina_pectoris,pressure_chest,polyuria,polydypsia,pain_chest]])
