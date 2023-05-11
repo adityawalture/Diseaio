@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace, non_constant_identifier_names, prefer_const_literals_to_create_immutables
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,14 +20,15 @@ class _SymptomsInputState extends State<SymptomsInput> {
   double syncope = 0.0;
   double vertigo = 0.0;
   double sweat = 0.0;
-  double vomiting = 0.0;
+  double sweat_increased = 0.0;
+  double palpitation = 0.0;
   double nausea = 0.0;
-  double chestdiscomfort = 0.0;
-  double blackout = 0.0;
-  double sneeze = 0.0;
-  double cough = 0.0;
-  double fever = 0.0;
-
+  double angina_pectoris = 0.0;
+  double pressure_chest = 0.0;
+  double polyuria = 0.0;
+  double polydypsia = 0.0;
+  double pain_chest = 0.0;
+//
   String predictedDisease = '';
   final _formKey = GlobalKey<FormState>();
   Future<void> _submitSelection() async {
@@ -41,13 +42,14 @@ class _SymptomsInputState extends State<SymptomsInput> {
         'syncope': syncope.toString(),
         'vertigo': vertigo.toString(),
         'sweat': sweat.toString(),
-        'vomiting': vomiting.toString(),
+        'sweating increased': sweat_increased.toString(),
+        'palpitation': palpitation.toString(),
         'nausea': nausea.toString(),
-        'chest discomfort': chestdiscomfort.toString(),
-        'blackout': blackout.toString(),
-        'sneeze': sneeze.toString(),
-        'cough': cough.toString(),
-        'fever': fever.toString(),
+        'angina pectoris': angina_pectoris.toString(),
+        'pressure chest': pressure_chest.toString(),
+        'polyuria': polyuria.toString(),
+        'polydypsia': polydypsia.toString(),
+        'pain chest': pain_chest.toString(),
       },
     ).timeout(
       Duration(seconds: 50),
@@ -64,7 +66,6 @@ class _SymptomsInputState extends State<SymptomsInput> {
       backgroundColor: Color.fromARGB(255, 209, 255, 207),
       body: Column(
         children: [
-          // ignore: sized_box_for_whitespace
           Container(
             // color: Colors.white,
             height: 100,
@@ -77,256 +78,223 @@ class _SymptomsInputState extends State<SymptomsInput> {
               ),
             ),
           ),
-          SizedBox(
+          Container(
             height: 300,
-            width: MediaQuery.of(context).size.width,
+            width: 300,
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 227, 233, 196),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(width: 1.0, style: BorderStyle.solid),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color.fromARGB(255, 97, 139, 96),
+                  spreadRadius: 6,
+                  blurRadius: 18,
+                  offset: Offset(4, 4),
+                ),
+              ],
+            ),
             // color: Colors.blueGrey,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                          // tileColor: Colors.lightGreenAccent.shade100,
-                          title: Text(
-                            'Shortness of breath',
-                            style: GoogleFonts.roboto(
-                                fontSize: 20, fontWeight: FontWeight.w500),
-                          ),
-                          value: shortnessOfBreath == 1.0,
-                          onChanged: (value) {
-                            setState(() {
-                              shortnessOfBreath =
-                                  value != null && value ? 1.0 : 0.0;
-                            });
-                          }),
+              child: ListView(
+                children: [
+                  CheckboxListTile(
+                    title: Text(
+                      'Shortness of Breath',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Dizziness',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: dizziness == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            dizziness = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: shortnessOfBreath == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        shortnessOfBreath = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Dizziness',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Asthenia',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: asthenia == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            asthenia = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: dizziness == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        dizziness = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Asthenia',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Fall',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: fall == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            fall = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: asthenia == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        asthenia = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Fall',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Syncope',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: syncope == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            syncope = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: fall == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        fall = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Syncope',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Vertigo',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: vertigo == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            vertigo = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: syncope == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        syncope = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Faintness',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Sweat',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: sweat == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            sweat = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: vertigo == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        vertigo = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Sweat',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Vomiting',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: vomiting == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            vomiting = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: sweat == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        sweat = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Sweating Increased',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Nausea',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: nausea == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            nausea = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: sweat_increased == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        sweat_increased = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Rapid Heartbeat',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Chest Discomfort',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: chestdiscomfort == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            chestdiscomfort =
-                                value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: palpitation == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        palpitation = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Nausea',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Blackout',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: blackout == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            blackout = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: nausea == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        nausea = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Cardiac Pain',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Sneeze',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: sneeze == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            sneeze = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: angina_pectoris == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        angina_pectoris = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Chest Pressure',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Cough',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: cough == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            cough = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: pressure_chest == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        pressure_chest = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Excessive Urination',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CheckboxListTile(
-                        // tileColor: Colors.lightGreenAccent.shade100,
-                        title: Text(
-                          'Fever',
-                          style: GoogleFonts.roboto(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        value: fever == 1.0,
-                        onChanged: (value) {
-                          setState(() {
-                            fever = value != null && value ? 1.0 : 0.0;
-                          });
-                        },
-                      ),
+                    value: polyuria == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        polyuria = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Constant Thirst',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                  ],
-                ),
+                    value: polydypsia == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        polydypsia = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Chest Pain',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w500),
+                    ),
+                    value: pain_chest == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        pain_chest = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                ],
               ),
             ),
           ),

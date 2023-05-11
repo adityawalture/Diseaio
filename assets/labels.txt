@@ -1,6 +1,7 @@
-covid
-pneumonia
-tuberculosis 
-normal
-brain tumor
-normal brain
+Covid 19
+Pneumonia
+Brain Tumour 
+Normal brain
+Tuberculosis 
+Normal 
+Invalid

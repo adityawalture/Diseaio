@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:login_trail/authPage.dart';
 import 'package:login_trail/pages/loginPage.dart';
 
+
 List<CameraDescription>? camera;
 
 void main() async {
