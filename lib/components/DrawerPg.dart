@@ -16,24 +16,28 @@ class _DrawPgState extends State<DrawPg> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 209, 255, 207),
+      color: Color(0xff70D7FF),
       child: ListView(
         children: [
           DrawerHeader(
-            child: Center(
-              child: Image.asset('assets/logo.png'),
+            child: Image.asset(
+              'assets/diseaio.png',
+              fit: BoxFit.fill,
             ),
           ),
           ListTile(
             leading: const Icon(
               Icons.account_circle_rounded,
               size: 30,
-              color: Colors.black,
+              color: Colors.white,
             ),
             title: Text(
               'Account',
-              style:
-                  GoogleFonts.roboto(fontSize: 17, fontWeight: FontWeight.w500),
+              style: GoogleFonts.roboto(
+                fontSize: 17,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
             ),
             onTap: () {
               Navigator.of(context).push(
@@ -47,12 +51,15 @@ class _DrawPgState extends State<DrawPg> {
             leading: const Icon(
               Icons.info_outline,
               size: 30,
-              color: Colors.black,
+              color: Colors.white,
             ),
             title: Text(
               'About',
-              style:
-                  GoogleFonts.roboto(fontSize: 17, fontWeight: FontWeight.w500),
+              style: GoogleFonts.roboto(
+                fontSize: 17,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
             ),
             onTap: () {
               Navigator.of(context).push(
@@ -66,12 +73,15 @@ class _DrawPgState extends State<DrawPg> {
             leading: const Icon(
               Icons.logout_rounded,
               size: 30,
-              color: Colors.black,
+              color: Colors.white,
             ),
             title: Text(
               'Log out',
-              style:
-                  GoogleFonts.roboto(fontSize: 17, fontWeight: FontWeight.w500),
+              style: GoogleFonts.roboto(
+                fontSize: 17,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
             ),
             onTap: () {
               FirebaseAuth.instance.signOut();

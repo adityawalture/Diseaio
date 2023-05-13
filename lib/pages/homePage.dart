@@ -23,66 +23,74 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 209, 255, 207),
+          // backgroundColor: Color.fromARGB(255, 209, 255, 207),
           drawer: Drawer(child: DrawPg()),
           appBar: AppBar(
-            title: Text('Home', style: GoogleFonts.roboto()),
-            bottom: TabBar(tabs: [
-              Tab(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Text(
-                    //   'Symptoms',
-                    //   style: GoogleFonts.roboto(),
-                    // ),
-                    // SizedBox(width: 5),
-                    Container(
-                      height: 26,
-                      child: Image.asset(
-                        'assets/symptoms.png',
-                      ),
-                    )
-                  ],
-                ),
+            // backgroundColor: Color(0xff5E8C61),
+            title: Text(
+              'Home',
+              style: GoogleFonts.roboto(
+                fontWeight: FontWeight.bold,
+                fontSize: 28,
               ),
-              Tab(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Text(
-                    //   'Symptoms',
-                    //   style: GoogleFonts.roboto(),
-                    // ),
-                    // SizedBox(width: 5),
-                    Container(
-                      height: 26,
-                      child: Image.asset(
-                        'assets/test.png',
-                      ),
-                    )
-                  ],
+            ),
+            bottom: TabBar(
+              indicatorColor: Colors.white,
+              tabs: [
+                Tab(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 26,
+                        child: Image.asset(
+                          'assets/symptoms.png',
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              Tab(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Text(
-                    //   'Symptoms',
-                    //   style: GoogleFonts.roboto(),
-                    // ),
-                    // SizedBox(width: 5),
-                    Container(
-                      height: 26,
-                      child: Image.asset(
-                        'assets/scan.png',
-                      ),
-                    )
-                  ],
+                Tab(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Text(
+                      //   'Symptoms',
+                      //   style: GoogleFonts.roboto(),
+                      // ),
+                      // SizedBox(width: 5),
+                      Container(
+                        height: 26,
+                        child: Image.asset(
+                          'assets/test.png',
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ]),
+                Tab(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Text(
+                      //   'Symptoms',
+                      //   style: GoogleFonts.roboto(),
+                      // ),
+                      // SizedBox(width: 5),
+                      Container(
+                        height: 26,
+                        child: Image.asset(
+                          'assets/scan.png',
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           body: TabBarView(
             children: [

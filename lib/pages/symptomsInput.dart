@@ -63,8 +63,9 @@ class _SymptomsInputState extends State<SymptomsInput> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 209, 255, 207),
+      backgroundColor: Color(0xff00A8E8),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             // color: Colors.white,
@@ -74,20 +75,25 @@ class _SymptomsInputState extends State<SymptomsInput> {
               child: Text(
                 'Select Symptoms',
                 style: GoogleFonts.roboto(
-                    fontSize: 25, fontWeight: FontWeight.w700),
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600),
               ),
             ),
           ),
+
           Container(
             height: 300,
             width: 300,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 227, 233, 196),
-              borderRadius: BorderRadius.circular(10),
+              // color: Color(0xffC3E9D7),
+              color: Color(0xffFFFFFF),
+              borderRadius: BorderRadius.circular(16),
               border: Border.all(width: 1.0, style: BorderStyle.solid),
               boxShadow: const [
                 BoxShadow(
-                  color: Color.fromARGB(255, 97, 139, 96),
+                  // color: Color.fromARGB(255, 97, 139, 96),
+                  color: Color(0xff00171F),
                   spreadRadius: 6,
                   blurRadius: 18,
                   offset: Offset(4, 4),
@@ -103,7 +109,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Shortness of Breath',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: shortnessOfBreath == 1.0,
                     onChanged: (value) {
@@ -116,7 +122,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Dizziness',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: dizziness == 1.0,
                     onChanged: (value) {
@@ -129,7 +135,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Asthenia',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: asthenia == 1.0,
                     onChanged: (value) {
@@ -142,7 +148,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Fall',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: fall == 1.0,
                     onChanged: (value) {
@@ -155,7 +161,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Syncope',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: syncope == 1.0,
                     onChanged: (value) {
@@ -168,7 +174,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Faintness',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: vertigo == 1.0,
                     onChanged: (value) {
@@ -181,7 +187,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Sweat',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: sweat == 1.0,
                     onChanged: (value) {
@@ -194,7 +200,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Sweating Increased',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: sweat_increased == 1.0,
                     onChanged: (value) {
@@ -207,7 +213,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Rapid Heartbeat',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: palpitation == 1.0,
                     onChanged: (value) {
@@ -220,7 +226,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Nausea',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: nausea == 1.0,
                     onChanged: (value) {
@@ -233,7 +239,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Cardiac Pain',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: angina_pectoris == 1.0,
                     onChanged: (value) {
@@ -246,7 +252,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Chest Pressure',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: pressure_chest == 1.0,
                     onChanged: (value) {
@@ -259,7 +265,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Excessive Urination',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: polyuria == 1.0,
                     onChanged: (value) {
@@ -272,7 +278,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Constant Thirst',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: polydypsia == 1.0,
                     onChanged: (value) {
@@ -285,7 +291,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
                     title: Text(
                       'Chest Pain',
                       style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w500),
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     ),
                     value: pain_chest == 1.0,
                     onChanged: (value) {
@@ -298,7 +304,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          // SizedBox(height: 20),
           Container(
               height: 200,
               width: MediaQuery.of(context).size.width,
@@ -307,6 +313,14 @@ class _SymptomsInputState extends State<SymptomsInput> {
                 children: [
                   Center(
                     child: ElevatedButton(
+                      style: ButtonStyle(
+                        elevation: MaterialStateProperty.all(12),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        )),
+                      ),
                       onPressed: _submitSelection,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -318,14 +332,26 @@ class _SymptomsInputState extends State<SymptomsInput> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
+                      width: 300,
                       decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        color: Color.fromARGB(255, 174, 246, 179),
-                        borderRadius: BorderRadius.circular(12),
+                        // color: Color(0xffC3E9D7),
+                        color: Color(0xffFFFFFF),
+                        borderRadius: BorderRadius.circular(16),
+                        border:
+                            Border.all(width: 1.0, style: BorderStyle.solid),
+                        boxShadow: const [
+                          BoxShadow(
+                            // color: Color.fromARGB(255, 97, 139, 96),
+                            color: Color(0xff00171F),
+                            spreadRadius: 6,
+                            blurRadius: 18,
+                            offset: Offset(4, 4),
+                          ),
+                        ],
                       ),
                       child: Center(
                         child: Padding(

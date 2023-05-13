@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 //import 'package:transparent_image/transparent_image.dart';
 
-
 class TestInput extends StatefulWidget {
   const TestInput({super.key});
 
@@ -59,6 +58,7 @@ class _TestInputState extends State<TestInput> {
           threshold: 0.2, // defaults to 0.1
           asynch: true);
 
+      // ignore: avoid_function_literals_in_foreach_calls
       predict!.forEach((element) {
         setState(() {
           loading = false;
@@ -76,7 +76,7 @@ class _TestInputState extends State<TestInput> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 209, 255, 207),
+      backgroundColor: Color(0xff00A8E8),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -87,6 +87,14 @@ class _TestInputState extends State<TestInput> {
               height: 250,
               width: 250,
               decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0xff00171F),
+                      spreadRadius: 6,
+                      blurRadius: 18,
+                      offset: Offset(4, 4),
+                    ),
+                  ],
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(width: 2),
