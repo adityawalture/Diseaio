@@ -113,18 +113,34 @@ class _TestInputState extends State<TestInput> {
           SizedBox(height: 15),
           ElevatedButton(
             onPressed: pickImage,
-            child: Text(
-              "Pick Image",
-              style:
-                  GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w600),
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              )),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Pick Image",
+                style: GoogleFonts.roboto(
+                    fontSize: 20, fontWeight: FontWeight.w600),
+              ),
             ),
           ),
-          TextButton(
+          // TextButton(
+          //     onPressed: clearImage,
+          //     child: Icon(
+          //       Icons.cancel_outlined,
+          //       size: 32,
+          //       color: Colors.white,
+          //     )),
+          IconButton(
             onPressed: clearImage,
-            child: Text(
-              "Clear Image",
-              style:
-                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w500),
+            icon: Icon(
+              Icons.cancel_outlined,
+              size: 32,
+              color: Colors.white,
             ),
           )
         ],

@@ -16,7 +16,7 @@ class _DrawPgState extends State<DrawPg> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff70D7FF),
+      color: Colors.white,
       child: ListView(
         children: [
           DrawerHeader(
@@ -29,20 +29,20 @@ class _DrawPgState extends State<DrawPg> {
             leading: const Icon(
               Icons.account_circle_rounded,
               size: 30,
-              color: Colors.white,
+              color: Color(0xff003459),
             ),
             title: Text(
               'Account',
               style: GoogleFonts.roboto(
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Color(0xff003459),
               ),
             ),
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const AccountPg(),
+                  builder: (context) =>  AccountPg(),
                 ),
               );
             },
@@ -51,14 +51,14 @@ class _DrawPgState extends State<DrawPg> {
             leading: const Icon(
               Icons.info_outline,
               size: 30,
-              color: Colors.white,
+              color: Color(0xff003459),
             ),
             title: Text(
               'About',
               style: GoogleFonts.roboto(
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Color(0xff003459),
               ),
             ),
             onTap: () {
@@ -73,14 +73,14 @@ class _DrawPgState extends State<DrawPg> {
             leading: const Icon(
               Icons.logout_rounded,
               size: 30,
-              color: Colors.white,
+              color: Color(0xff003459),
             ),
             title: Text(
               'Log out',
               style: GoogleFonts.roboto(
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Color(0xff003459),
               ),
             ),
             onTap: () {

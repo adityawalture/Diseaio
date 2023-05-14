@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
           // backgroundColor: Color.fromARGB(255, 209, 255, 207),
           drawer: Drawer(child: DrawPg()),
@@ -51,25 +51,25 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                Tab(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Text(
-                      //   'Symptoms',
-                      //   style: GoogleFonts.roboto(),
-                      // ),
-                      // SizedBox(width: 5),
-                      Container(
-                        height: 26,
-                        child: Image.asset(
-                          'assets/test.png',
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                // Tab(
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       // Text(
+                //       //   'Symptoms',
+                //       //   style: GoogleFonts.roboto(),
+                //       // ),
+                //       // SizedBox(width: 5),
+                //       Container(
+                //         height: 26,
+                //         child: Image.asset(
+                //           'assets/test.png',
+                //           color: Colors.white,
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
                 Tab(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
           body: TabBarView(
             children: [
               SymptomsInput(),
-              DiseaseInput(),
+              // DiseaseInput(),
               TestInput(),
             ],
           )),

@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            Image.asset('assets/logo.png'),
+            Image.asset('assets/diseaio.png'),
             SizedBox(height: 25),
             //First text
 
