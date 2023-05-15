@@ -16,33 +16,36 @@ class _DrawPgState extends State<DrawPg> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Color.fromARGB(255, 58, 58, 59),
       child: ListView(
         children: [
           DrawerHeader(
+              child: Container(
+            height: 120,
+            width: 120,
             child: Image.asset(
               'assets/diseaio.png',
-              fit: BoxFit.fill,
+              fit: BoxFit.fitHeight,
             ),
-          ),
+          )),
           ListTile(
             leading: const Icon(
               Icons.account_circle_rounded,
               size: 30,
-              color: Color(0xff003459),
+              color: Colors.white,
             ),
             title: Text(
               'Account',
               style: GoogleFonts.roboto(
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
-                color: Color(0xff003459),
+                color: Colors.white,
               ),
             ),
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) =>  AccountPg(),
+                  builder: (context) => AccountPg(),
                 ),
               );
             },
@@ -51,14 +54,14 @@ class _DrawPgState extends State<DrawPg> {
             leading: const Icon(
               Icons.info_outline,
               size: 30,
-              color: Color(0xff003459),
+              color: Colors.white,
             ),
             title: Text(
               'About',
               style: GoogleFonts.roboto(
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
-                color: Color(0xff003459),
+                color: Colors.white,
               ),
             ),
             onTap: () {
@@ -73,14 +76,14 @@ class _DrawPgState extends State<DrawPg> {
             leading: const Icon(
               Icons.logout_rounded,
               size: 30,
-              color: Color(0xff003459),
+              color: Colors.white,
             ),
             title: Text(
               'Log out',
               style: GoogleFonts.roboto(
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
-                color: Color(0xff003459),
+                color: Colors.white,
               ),
             ),
             onTap: () {

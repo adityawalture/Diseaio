@@ -17,7 +17,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const int _primaryValue = 0xff003459;
+  static const int _primaryValue = 0xff000000;
   static const MaterialColor myPrimarySwatch = MaterialColor(
     _primaryValue,
     <int, Color>{

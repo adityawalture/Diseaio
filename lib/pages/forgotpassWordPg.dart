@@ -46,15 +46,18 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forgot Password'),
+        title: Text(
+          'Forgot Password',
+          style: GoogleFonts.roboto(fontSize: 20, color: Colors.white),
+        ),
       ),
-      backgroundColor: Color.fromARGB(255, 209, 255, 207),
+      backgroundColor: Color(0xff000000),
       body: Column(
         children: [
           SizedBox(height: 80),
           Text(
             'Enter email to reset password',
-            style: GoogleFonts.roboto(fontSize: 20),
+            style: GoogleFonts.roboto(fontSize: 20, color: Colors.white),
           ),
           SizedBox(height: 20),
           //email textfield
@@ -63,7 +66,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Colors.grey.shade200,
+                  color: Color.fromARGB(255, 102, 100, 100),
                   border: Border.all(color: Colors.black)),
               child: Padding(
                 padding: const EdgeInsets.only(left: 20.0),
@@ -71,6 +74,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   controller: _emailController,
                   decoration: InputDecoration(
                     hintText: 'e-mail@gmail.com',
+                    hintStyle: TextStyle(color: Colors.white),
                     border: InputBorder.none,
                   ),
                 ),
@@ -79,6 +83,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           ),
           SizedBox(height: 15),
           ElevatedButton(
+            style: ButtonStyle(
+              // elevation: MaterialStateProperty.all(8),
+              backgroundColor: MaterialStateProperty.all(Color(0xff00beff)),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              )),
+            ),
             onPressed: passwordReset,
             child: Text(
               'Reset',

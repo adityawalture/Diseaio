@@ -76,7 +76,7 @@ class _TestInputState extends State<TestInput> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff00A8E8),
+      backgroundColor: Color.fromARGB(255, 58, 58, 59),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

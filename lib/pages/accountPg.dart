@@ -18,7 +18,7 @@ class _AccountPgState extends State<AccountPg> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff00A8E8),
+      backgroundColor: Color.fromARGB(255, 58, 58, 59),
       appBar: AppBar(
         title: Text(
           'Account',
@@ -32,11 +32,22 @@ class _AccountPgState extends State<AccountPg> {
         children: [
           Center(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  user.email!,
-                  style: GoogleFonts.roboto(
-                      fontSize: 17, fontWeight: FontWeight.w500),
+                Container(
+                  height: 120,
+                  width: 200,
+                  decoration: BoxDecoration(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      user.email!,
+                      style: GoogleFonts.roboto(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
                 ),
               ],
             ),
