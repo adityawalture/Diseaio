@@ -32,7 +32,7 @@ def predict():
     input_query = np.array([[shortness_of_breath,dizziness,asthenia,fall,syncope,vertigo,sweat,sweating_increased,palpitation,nausea,
                              angina_pectoris,pressure_chest,polyuria,polydypsia,pain_chest]])
 
-    # input_query= np.array([[shortness_of_breath,dizziness,asthenia,fall,syncope]])   #for 5 symptoms
+    
     result = model.predict(input_query)[0]
 
     return jsonify({'disease':str(result)})       
