@@ -28,9 +28,19 @@ class _SymptomsInputState extends State<SymptomsInput> {
   double polyuria = 0.0;
   double polydypsia = 0.0;
   double pain_chest = 0.0;
-//
+  double orthopnea = 0.0;
+  double rale = 0.0;
+  double unresponsiveness = 0.0;
+  double mental_status_changes = 0.0;
+  double vomiting = 0.0;
+  double labored_breathing = 0.0;
+  double feeling_suicidal = 0.0;
+  double suicidal = 0.0;
+  double hallucinations_auditory = 0.0;
+  double feeling_hopeless = 0.0;
+
   String predictedDisease = '';
-  final _formKey = GlobalKey<FormState>();
+  //final _formKey = GlobalKey<FormState>();
   Future<void> _submitSelection() async {
     final response = await http.post(
       Uri.parse('http://10.0.2.2:5000/predict'),
@@ -50,6 +60,16 @@ class _SymptomsInputState extends State<SymptomsInput> {
         'polyuria': polyuria.toString(),
         'polydypsia': polydypsia.toString(),
         'pain chest': pain_chest.toString(),
+        'orthopnea': orthopnea.toString(),
+        'rale': rale.toString(),
+        'unresponsiveness': unresponsiveness.toString(),
+        'mental status changes': mental_status_changes.toString(),
+        'vomiting': vomiting.toString(),
+        'labored breathing': labored_breathing.toString(),
+        'feeling suicidal': feeling_suicidal.toString(),
+        'suicidal': suicidal.toString(),
+        'hallucinations auditory': hallucinations_auditory.toString(),
+        'feeling hopeless': feeling_hopeless.toString()
       },
     ).timeout(
       Duration(seconds: 50),
@@ -69,7 +89,7 @@ class _SymptomsInputState extends State<SymptomsInput> {
         children: [
           Container(
             // color: Colors.white,
-            height: 100,
+            height: 50,
             width: MediaQuery.of(context).size.width,
             child: Center(
               child: Text(
@@ -300,6 +320,138 @@ class _SymptomsInputState extends State<SymptomsInput> {
                       });
                     },
                   ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Slow Breathing',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: orthopnea == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        orthopnea = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Fatigue',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: rale == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        rale = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Unresponsiveness',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: unresponsiveness == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        unresponsiveness = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Loss of Alertness',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: mental_status_changes == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        mental_status_changes =
+                            value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Vomiting',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: vomiting == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        vomiting = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Labored Breathing',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: labored_breathing == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        labored_breathing = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Feeling Suicidal',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: feeling_suicidal == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        feeling_suicidal = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Suicidal',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: suicidal == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        suicidal = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Hallucinations Auditory',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: hallucinations_auditory == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        hallucinations_auditory =
+                            value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text(
+                      'Feeling Hopeless',
+                      style: GoogleFonts.roboto(
+                          fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    value: feeling_hopeless == 1.0,
+                    onChanged: (value) {
+                      setState(() {
+                        feeling_hopeless = value != null && value ? 1.0 : 0.0;
+                      });
+                    },
+                  ),
                 ],
               ),
             ),
@@ -364,10 +516,13 @@ class _SymptomsInputState extends State<SymptomsInput> {
                                     fontSize: 20, fontWeight: FontWeight.w600),
                               ),
                               SizedBox(height: 5),
-                              Text(
-                                predictedDisease,
-                                style: GoogleFonts.roboto(
-                                    fontSize: 25, fontWeight: FontWeight.w700),
+                              Center(
+                                child: Text(
+                                  predictedDisease,
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w700),
+                                ),
                               )
                             ],
                           ),
