@@ -107,8 +107,8 @@ class _TestInputState extends State<TestInput> {
           SizedBox(height: 15),
           Text(
             outputs,
-            style:
-                GoogleFonts.roboto(fontSize: 25, fontWeight: FontWeight.w700),
+            style: GoogleFonts.roboto(
+                fontSize: 25, fontWeight: FontWeight.w700, color: Colors.white),
           ),
           SizedBox(height: 15),
           ElevatedButton(
