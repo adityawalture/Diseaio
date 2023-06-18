@@ -7,7 +7,7 @@ import 'package:login_trail/pages/symptomsInput.dart';
 import 'package:login_trail/pages/test.dart';
 
 import '../components/DrawerPg.dart';
-import 'diseaseInput.dart';
+// import 'diseaseInput.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

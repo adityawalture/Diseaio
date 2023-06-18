@@ -11,7 +11,7 @@ app = Flask(__name__)
 def home():
     return "hello"
 
-@app.route('/predict', methods=['POSt'])
+@app.route('/predict', methods=['POST'])
 def predict():
     # model = joblib.load("new_model.joblib")
     model = joblib.load("flask_backend/new_model.joblib")

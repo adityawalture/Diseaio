@@ -13,7 +13,7 @@ class Gmaps extends StatefulWidget {
 class _GmapsState extends State<Gmaps> {
   late GoogleMapController mapController;
    final LatLng _center = const LatLng(45.521563, -122.677433);
-  Map<String, Marker> _marker = {};
+  // Map<String, Marker> _marker = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(

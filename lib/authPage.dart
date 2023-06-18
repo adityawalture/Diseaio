@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_trail/pages/homePage.dart';
-import 'package:login_trail/pages/loginPage.dart';
+// import 'package:login_trail/pages/loginPage.dart';
 
 import 'auth2Page.dart';
 
