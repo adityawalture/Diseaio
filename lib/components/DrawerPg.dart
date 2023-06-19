@@ -16,11 +16,11 @@ class _DrawPgState extends State<DrawPg> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 58, 58, 59),
+      color: const Color.fromARGB(255, 58, 58, 59),
       child: ListView(
         children: [
           DrawerHeader(
-              child: Container(
+              child: SizedBox(
             height: 120,
             width: 120,
             child: Image.asset(
@@ -45,7 +45,7 @@ class _DrawPgState extends State<DrawPg> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => AccountPg(),
+                  builder: (context) => const AccountPg(),
                 ),
               );
             },
