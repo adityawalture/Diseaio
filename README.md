@@ -10,7 +10,7 @@ The project consists of the following screens:
 - Login screen: a screen that allows the user to sign in with their email and password or with Google
 - Home screen: a screen that displays the user's profile, health stats, and daily activities
 - Details screen: a screen that shows more details about a specific activity or stat
-- Settings screen: a screen that allows the user to customize their preferences and profile
+
 
 ## How to run the project
 To run the project, you need to have Flutter and Dart installed on your machine. You can follow the official documentation to install them. You also need to have an Android or iOS emulator or device connected to your machine.
