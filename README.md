@@ -6,10 +6,9 @@ This is a project that uses Flutter to create a beautiful and responsive UI desi
 The project consists of the following screens:
 
 - Splash screen: a simple screen that displays the app logo and name
-- Onboarding screen: a screen that introduces the app features and benefits to the user
-- Login screen: a screen that allows the user to sign in with their email and password or with Google
-- Home screen: a screen that displays the user's profile, health stats, and daily activities
-- Details screen: a screen that shows more details about a specific activity or stat
+- Login screen: Allows the user to sign in with their email and password or with Google
+- Home screen: Welcomes the user and provides them with dialogue box for input of their symptoms. With Xray menu available at the top helps in uploading patient's Xray details.
+- Details screen: After evaluating patient's sysmptoms our model predicts probable disease and proceeds further to give related information to the user about the same.
 
 
 ## How to run the project
