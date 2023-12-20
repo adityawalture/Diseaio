@@ -19,4 +19,5 @@ To execute the code, you can use any IDE that supports Flutter development, such
 The output of the code will be displayed on your emulator or device. You can interact with the app and see how it responds to different gestures and orientations.
 
 ## Contact
-If you have any questions or feedback about this project, feel free to connect with us on mail. We would love to hear from you! 😊
+If you have any questions or feedback about this project, feel free to connect with us through e-mail `abdullahmoonis567@gmail.com` or `adityawalture9298@gmail.com`.<br>
+We would love to hear from you! 😊
