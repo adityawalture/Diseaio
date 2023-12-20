@@ -12,11 +12,15 @@ The project consists of the following screens:
 
 
 ## How to run the project
-To run the project, you need to have Flutter and Dart installed on your machine. You can follow the official documentation to install them. You also need to have an Android or iOS emulator or device connected to your machine.
+To run the project, you need to have Flutter installed on your machine. You can follow the official documentation here :`https://docs.flutter.dev/` to install it.
 
-To execute the code, you can use any IDE that supports Flutter development, such as VS Code or Android Studio. The main file is `main.dart`, which contains the entry point for the app. You can run the app by clicking the run button on your IDE or by using the command `flutter run` on your terminal.
+To execute the code, you can use any IDE that supports Flutter development, such as VS Code or Android Studio.<br>
+Run `main.dart` file which contains the entry point for the app. <br>
+The emulator will start and you will be greeted with a welcome screen. Further after logging in users can add their symptoms and Xray's for our ML model to start prediction and assist the users in receiving the best care.<br>
 
-The output of the code will be displayed on your emulator or device. You can interact with the app and see how it responds to different gestures and orientations.
+## Future Improvements
+- We will be adding API's to get information about the nearest hospital and available doctors around the user's location, so that the patient's can get the treatment on time.<br>
+- Also we are working to collaborate with hospitals and on call doctors to set appointments through the app itself, this will be immensely usefull to the user as they can get treatment virtually.
 
 ## Contact
 If you have any questions or feedback about this project, feel free to connect with us through e-mail `abdullahmoonis567@gmail.com` or `adityawalture9298@gmail.com`.<br>
