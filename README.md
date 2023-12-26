@@ -13,6 +13,8 @@ The project consists of the following screens:
 
 ## How to run the project
 To run the project, you need to have Flutter installed on your machine. You can follow the official documentation here :`https://docs.flutter.dev/` to install it.
+Track to this destination: **./flask_backend/app.py** and 
+open terminal and give cmd "flask run"
 
 To execute the code, you can use any IDE that supports Flutter development, such as VS Code or Android Studio.<br>
 Run `main.dart` file which contains the entry point for the app. <br>
