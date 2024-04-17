@@ -43,7 +43,9 @@ class _SymptomsInputState extends State<SymptomsInput> {
   //final _formKey = GlobalKey<FormState>();
   Future<void> _submitSelection() async {
     final response = await http.post(
-      Uri.parse('http://10.0.2.2:5000/predict'),
+      
+      // http://10.0.2.2:5000/predict
+      Uri.parse('http://127.0.0.1:5000/predict'),
       body: {
         'shortness of breath': shortnessOfBreath.toString(),
         'dizziness': dizziness.toString(),

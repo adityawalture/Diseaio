@@ -1,4 +1,4 @@
-# Diseaio
+# Diseaio 📱
 
 ## Description
 This is a project that uses Flutter to create a beautiful and responsive UI design for a health app. The project showcases the use of Flutter widgets, animations, themes, and navigation to create a stunning user interface that adapts to different screen sizes and orientations.
@@ -11,6 +11,13 @@ The project consists of the following screens:
 - Home screen: a screen that displays the user's profile, health stats, and daily activities
 - Details screen: a screen that shows more details about a specific activity or stat
 - Settings screen: a screen that allows the user to customize their preferences and profile
+
+## Screenshots
+<div style="display: flex; justify-content: space-evenly;">
+    <img src="./assets/screenshots/Screenshot 2023-05-15 143344.png" alt="Screenshot 1" style="width: 200px; height: auto; border-radius: 15px; padding-right: 10px;">
+    <img src="./assets/screenshots/Screenshot 2023-05-15 143516.png" alt="Screenshot 2" style="width: 200px; height: auto; border-radius: 15px; padding-right: 10px;">
+    <img src="./assets/screenshots/Screenshot 2023-05-15 143535.png" alt="Screenshot 3" style="width: 200px; height: auto; border-radius: 15px;">
+</div>
 
 ## How to run the project
 To run the project, you need to have Flutter and Dart installed on your machine. You can follow the official documentation to install them. You also need to have an Android or iOS emulator or device connected to your machine.

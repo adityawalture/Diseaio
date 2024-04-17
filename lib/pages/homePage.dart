@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
           // backgroundColor: Color.fromARGB(255, 209, 255, 207),
           drawer: Drawer(child: DrawPg()),
           appBar: AppBar(
-            // backgroundColor: Color(0xff5E8C61),
+            backgroundColor: Color(0xff5E8C61),
             title: Text(
               'Home',
               style: GoogleFonts.roboto(

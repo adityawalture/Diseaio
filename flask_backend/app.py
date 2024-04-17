@@ -13,8 +13,9 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # model = joblib.load("new_model.joblib")
-    model = joblib.load("flask_backend/new_model.joblib")
+    model = joblib.load("new_model.joblib")
+    # model = joblib.load("flask_backend/new_model.joblib")
+    # model = joblib.load("flask_backend/new_model.joblib")
     shortness_of_breath = request.form.get('shortness of breath')
     dizziness = request.form.get('dizziness')
     asthenia = request.form.get('asthenia')
